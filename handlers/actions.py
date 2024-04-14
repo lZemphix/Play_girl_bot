@@ -12,7 +12,7 @@ async def send_photo_action(message, state, bot):
         await state.update_data(photo=message.photo[-1].file_id)
         await message.answer("Фото отправлено на модерацию, ожидайте.")
         await bot.send_photo(chat_id=6503681467, photo=message.photo[-1].file_id)
-        await bot.send_photo(chat_id=6822091159, photo=message.photo[-1].file_id)
+        # await bot.send_photo(chat_id=6822091159, photo=message.photo[-1].file_id)
         await state.clear()
     else:
         await message.answer("Что-то пошло не так. Возможно вы пытаетесь отправить фото как файл. Отправье фото как изображение или введите /cancel для отмены")
@@ -31,12 +31,12 @@ async def send_photo_action(message, state, bot):
     elif message.photo:
         await message.answer("Фото отправлено на модерацию, ожидайте.")
         await bot.send_photo(chat_id=6503681467, photo=message.photo[-1].file_id)
-        await bot.send_photo(chat_id=6822091159, photo=message.photo[-1].file_id)
+        # await bot.send_photo(chat_id=6822091159, photo=message.photo[-1].file_id)
         await state.clear()
     elif message.video:
         await message.answer("Видео отправлено на модерацию, ожидайте.")
         await bot.send_video(chat_id=6503681467, video=message.video.file_id)
-        await bot.send_video(chat_id=6822091159, video=message.video.file_id)
+        # await bot.send_video(chat_id=6822091159, video=message.video.file_id)
         await state.clear()
     else:
         await message.answer("Ошибка. Возможно вы пытаетесь отправить материал как файл. Отправье материал как изображение/видео или введите /cancel для отмены")
@@ -44,7 +44,7 @@ async def send_photo_action(message, state, bot):
 async def send_media_group(bot, media_group_id, state):
     try:
         await bot.send_media_group(chat_id=6503681467, media=media_group_cache[media_group_id].build())
-        await bot.send_media_group(chat_id=6822091159, media=media_group_cache[media_group_id].build())
+        # await bot.send_media_group(chat_id=6822091159, media=media_group_cache[media_group_id].build())
         del media_group_cache[media_group_id]
         await state.clear()
     except KeyError:
